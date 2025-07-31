@@ -245,7 +245,7 @@
             Controls.Add(label1);
             Controls.Add(portNameComboBox);
             Name = "PLCSerial";
-            Text = "Form1";
+            Text = "PLCSerial";
             Load += Form1_Load;
             ResumeLayout(false);
             PerformLayout();

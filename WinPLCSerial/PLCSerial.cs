@@ -63,9 +63,20 @@ namespace WinPLCSerial {
                 }
                 string command = this.commandEntry.Text;
                 printOutput($"Sending command {command}");
-                this.serialPort.Write(command + "\r\n");
-                string response = this.serialPort.ReadTo("\r");
-                printOutput($"Response: {response}");
+                try {
+                    this.serialPort.Write(command + "\r\n");
+                } catch (Exception ex) {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    printOutput($"Failed to send command {command}");
+                }
+
+                try {
+                    string response = this.serialPort.ReadTo("\r");
+                    printOutput($"Response: {response}");
+                } catch (Exception ex) {
+                    System.Diagnostics.Debug.WriteLine(ex);
+                    printOutput("Failed to receive response");
+                }
             }
         }
     }

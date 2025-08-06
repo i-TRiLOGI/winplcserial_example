@@ -1,4 +1,6 @@
-﻿namespace WinPLCSerial {
+﻿using System.IO.Ports;
+
+namespace WinPLCSerial {
     partial class PLCSerial {
         /// <summary>
         ///  Required designer variable.
@@ -47,7 +49,7 @@
             // portNameComboBox
             // 
             portNameComboBox.FormattingEnabled = true;
-            portNameComboBox.Items.AddRange(new object[] { "COM1", "COM2", "COM3", "COM4", "COM5", "COM6" });
+            portNameComboBox.Items.AddRange(SerialPort.GetPortNames());
             portNameComboBox.Location = new Point(115, 20);
             portNameComboBox.Name = "portNameComboBox";
             portNameComboBox.Size = new Size(151, 28);
